@@ -44,9 +44,25 @@
     {}
 
 // This is an array of EmberAfAttributeMetadata structures.
-#define GENERATED_ATTRIBUTE_COUNT 0
+#define GENERATED_ATTRIBUTE_COUNT 8
 #define GENERATED_ATTRIBUTES                                                                                                       \
-    {}
+    {                                                                                                                              \
+                                                                                                                                   \
+        /* Endpoint: 1, Cluster: Freedompro (server) */                                                                            \
+        { ZAP_EMPTY_DEFAULT(), 0x00000000, 65, ZAP_TYPE(CHAR_STRING), 0 }, /* uid */                                               \
+            { ZAP_EMPTY_DEFAULT(), 0x00000001, 1, ZAP_TYPE(BOOLEAN),                                                               \
+              ZAP_ATTRIBUTE_MASK(WRITABLE) | ZAP_ATTRIBUTE_MASK(NULLABLE) }, /* disable */                                         \
+            { ZAP_EMPTY_DEFAULT(), 0x00000002, 4, ZAP_TYPE(INT32U),                                                                \
+              ZAP_ATTRIBUTE_MASK(WRITABLE) | ZAP_ATTRIBUTE_MASK(NULLABLE) }, /* inputType */                                       \
+            { ZAP_EMPTY_DEFAULT(), 0x00000003, 1, ZAP_TYPE(BOOLEAN),                                                               \
+              ZAP_ATTRIBUTE_MASK(WRITABLE) | ZAP_ATTRIBUTE_MASK(NULLABLE) }, /* enableInputPair */                                 \
+            { ZAP_EMPTY_DEFAULT(), 0x00000004, 4, ZAP_TYPE(INT32U),                                                                \
+              ZAP_ATTRIBUTE_MASK(WRITABLE) | ZAP_ATTRIBUTE_MASK(NULLABLE) }, /* delayOff */                                        \
+            { ZAP_EMPTY_DEFAULT(), 0x00000005, 4, ZAP_TYPE(INT32U),                                                                \
+              ZAP_ATTRIBUTE_MASK(WRITABLE) | ZAP_ATTRIBUTE_MASK(NULLABLE) }, /* time */                                            \
+            { ZAP_SIMPLE_DEFAULT(0), 0x0000FFFC, 4, ZAP_TYPE(BITMAP32), 0 }, /* FeatureMap */                                      \
+            { ZAP_SIMPLE_DEFAULT(1), 0x0000FFFD, 2, ZAP_TYPE(INT16U), 0 },   /* ClusterRevision */                                 \
+    }
 
 // clang-format off
 #define GENERATED_EVENT_COUNT 0
@@ -59,7 +75,7 @@
 #define GENERATED_FUNCTION_ARRAYS
 
 // This is an array of EmberAfCluster structures.
-#define GENERATED_CLUSTER_COUNT 66
+#define GENERATED_CLUSTER_COUNT 68
 // clang-format off
 #define GENERATED_CLUSTERS { \
   { \
@@ -908,9 +924,35 @@
       .eventCount = 0, \
     },\
   { \
+      /* Endpoint: 1, Cluster: Freedompro (client) */ \
+      .clusterId = 0x1411FC01, \
+      .attributes = ZAP_ATTRIBUTE_INDEX(0), \
+      .attributeCount = 0, \
+      .clusterSize = 0, \
+      .mask = ZAP_CLUSTER_MASK(CLIENT), \
+      .functions = NULL, \
+      .acceptedCommandList = nullptr, \
+      .generatedCommandList = nullptr, \
+      .eventList = nullptr, \
+      .eventCount = 0, \
+    },\
+  { \
+      /* Endpoint: 1, Cluster: Freedompro (server) */ \
+      .clusterId = 0x1411FC01, \
+      .attributes = ZAP_ATTRIBUTE_INDEX(0), \
+      .attributeCount = 8, \
+      .clusterSize = 85, \
+      .mask = ZAP_CLUSTER_MASK(SERVER), \
+      .functions = NULL, \
+      .acceptedCommandList = nullptr, \
+      .generatedCommandList = nullptr, \
+      .eventList = nullptr, \
+      .eventCount = 0, \
+    },\
+  { \
       /* Endpoint: 1, Cluster: Unit Testing (client) */ \
       .clusterId = 0xFFF1FC05, \
-      .attributes = ZAP_ATTRIBUTE_INDEX(0), \
+      .attributes = ZAP_ATTRIBUTE_INDEX(8), \
       .attributeCount = 0, \
       .clusterSize = 0, \
       .mask = ZAP_CLUSTER_MASK(CLIENT), \
@@ -924,16 +966,16 @@
 
 // clang-format on
 
-#define ZAP_FIXED_ENDPOINT_DATA_VERSION_COUNT 0
+#define ZAP_FIXED_ENDPOINT_DATA_VERSION_COUNT 1
 
 // This is an array of EmberAfEndpointType structures.
 #define GENERATED_ENDPOINT_TYPES                                                                                                   \
     {                                                                                                                              \
-        { ZAP_CLUSTER_INDEX(0), 66, 0 },                                                                                           \
+        { ZAP_CLUSTER_INDEX(0), 68, 85 },                                                                                          \
     }
 
 // Largest attribute size is needed for various buffers
-#define ATTRIBUTE_LARGEST (1)
+#define ATTRIBUTE_LARGEST (66)
 
 static_assert(ATTRIBUTE_LARGEST <= CHIP_CONFIG_MAX_ATTRIBUTE_STORE_ELEMENT_SIZE, "ATTRIBUTE_LARGEST larger than expected");
 
@@ -941,7 +983,7 @@ static_assert(ATTRIBUTE_LARGEST <= CHIP_CONFIG_MAX_ATTRIBUTE_STORE_ELEMENT_SIZE,
 #define ATTRIBUTE_SINGLETONS_SIZE (0)
 
 // Total size of attribute storage
-#define ATTRIBUTE_MAX_SIZE (0)
+#define ATTRIBUTE_MAX_SIZE (85)
 
 // Number of fixed endpoints
 #define FIXED_ENDPOINT_COUNT (1)

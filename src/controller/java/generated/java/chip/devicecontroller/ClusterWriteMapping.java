@@ -2595,6 +2595,89 @@ public class ClusterWriteMapping {
     writeAttributeMap.put("electricalMeasurement", writeElectricalMeasurementInteractionInfo);
     Map<String, InteractionInfo> writeClientMonitoringInteractionInfo = new LinkedHashMap<>();
     writeAttributeMap.put("clientMonitoring", writeClientMonitoringInteractionInfo);
+    Map<String, InteractionInfo> writeFreedomproInteractionInfo = new LinkedHashMap<>();
+    Map<String, CommandParameterInfo> writeFreedomproDisableCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    CommandParameterInfo freedomprodisableCommandParameterInfo =
+        new CommandParameterInfo("value", Boolean.class, Boolean.class);
+    writeFreedomproDisableCommandParams.put("value", freedomprodisableCommandParameterInfo);
+    InteractionInfo writeFreedomproDisableAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .writeDisableAttribute(
+                      (DefaultClusterCallback) callback, (Boolean) commandArguments.get("value"));
+            },
+            () -> new ClusterInfoMapping.DelegatedDefaultClusterCallback(),
+            writeFreedomproDisableCommandParams);
+    writeFreedomproInteractionInfo.put(
+        "writeDisableAttribute", writeFreedomproDisableAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> writeFreedomproInputTypeCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    CommandParameterInfo freedomproinputTypeCommandParameterInfo =
+        new CommandParameterInfo("value", Long.class, Long.class);
+    writeFreedomproInputTypeCommandParams.put("value", freedomproinputTypeCommandParameterInfo);
+    InteractionInfo writeFreedomproInputTypeAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .writeInputTypeAttribute(
+                      (DefaultClusterCallback) callback, (Long) commandArguments.get("value"));
+            },
+            () -> new ClusterInfoMapping.DelegatedDefaultClusterCallback(),
+            writeFreedomproInputTypeCommandParams);
+    writeFreedomproInteractionInfo.put(
+        "writeInputTypeAttribute", writeFreedomproInputTypeAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> writeFreedomproEnableInputPairCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    CommandParameterInfo freedomproenableInputPairCommandParameterInfo =
+        new CommandParameterInfo("value", Boolean.class, Boolean.class);
+    writeFreedomproEnableInputPairCommandParams.put(
+        "value", freedomproenableInputPairCommandParameterInfo);
+    InteractionInfo writeFreedomproEnableInputPairAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .writeEnableInputPairAttribute(
+                      (DefaultClusterCallback) callback, (Boolean) commandArguments.get("value"));
+            },
+            () -> new ClusterInfoMapping.DelegatedDefaultClusterCallback(),
+            writeFreedomproEnableInputPairCommandParams);
+    writeFreedomproInteractionInfo.put(
+        "writeEnableInputPairAttribute", writeFreedomproEnableInputPairAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> writeFreedomproDelayOffCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    CommandParameterInfo freedomprodelayOffCommandParameterInfo =
+        new CommandParameterInfo("value", Long.class, Long.class);
+    writeFreedomproDelayOffCommandParams.put("value", freedomprodelayOffCommandParameterInfo);
+    InteractionInfo writeFreedomproDelayOffAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .writeDelayOffAttribute(
+                      (DefaultClusterCallback) callback, (Long) commandArguments.get("value"));
+            },
+            () -> new ClusterInfoMapping.DelegatedDefaultClusterCallback(),
+            writeFreedomproDelayOffCommandParams);
+    writeFreedomproInteractionInfo.put(
+        "writeDelayOffAttribute", writeFreedomproDelayOffAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> writeFreedomproTimeCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    CommandParameterInfo freedomprotimeCommandParameterInfo =
+        new CommandParameterInfo("value", Long.class, Long.class);
+    writeFreedomproTimeCommandParams.put("value", freedomprotimeCommandParameterInfo);
+    InteractionInfo writeFreedomproTimeAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .writeTimeAttribute(
+                      (DefaultClusterCallback) callback, (Long) commandArguments.get("value"));
+            },
+            () -> new ClusterInfoMapping.DelegatedDefaultClusterCallback(),
+            writeFreedomproTimeCommandParams);
+    writeFreedomproInteractionInfo.put(
+        "writeTimeAttribute", writeFreedomproTimeAttributeInteractionInfo);
+    writeAttributeMap.put("freedompro", writeFreedomproInteractionInfo);
     Map<String, InteractionInfo> writeUnitTestingInteractionInfo = new LinkedHashMap<>();
     Map<String, CommandParameterInfo> writeUnitTestingBooleanCommandParams =
         new LinkedHashMap<String, CommandParameterInfo>();

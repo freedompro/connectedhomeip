@@ -1114,6 +1114,14 @@ typedef void (*ElectricalMeasurementAcceptedCommandListListAttributeCallback)(
     void * context, const chip::app::DataModel::DecodableList<chip::CommandId> & data);
 typedef void (*ElectricalMeasurementAttributeListListAttributeCallback)(
     void * context, const chip::app::DataModel::DecodableList<chip::AttributeId> & data);
+typedef void (*FreedomproGeneratedCommandListListAttributeCallback)(
+    void * context, const chip::app::DataModel::DecodableList<chip::CommandId> & data);
+typedef void (*FreedomproAcceptedCommandListListAttributeCallback)(
+    void * context, const chip::app::DataModel::DecodableList<chip::CommandId> & data);
+typedef void (*FreedomproEventListListAttributeCallback)(void * context,
+                                                         const chip::app::DataModel::DecodableList<chip::EventId> & data);
+typedef void (*FreedomproAttributeListListAttributeCallback)(void * context,
+                                                             const chip::app::DataModel::DecodableList<chip::AttributeId> & data);
 typedef void (*UnitTestingBitmap8AttributeCallback)(void *, chip::BitMask<chip::app::Clusters::UnitTesting::Bitmap8MaskMap>);
 typedef void (*UnitTestingBitmap16AttributeCallback)(void *, chip::BitMask<chip::app::Clusters::UnitTesting::Bitmap16MaskMap>);
 typedef void (*UnitTestingBitmap32AttributeCallback)(void *, chip::BitMask<chip::app::Clusters::UnitTesting::Bitmap32MaskMap>);
@@ -10412,6 +10420,133 @@ public:
     void OnSubscriptionEstablished();
     using MTRElectricalMeasurementAttributeListListAttributeCallbackBridge::KeepAliveOnCallback;
     using MTRElectricalMeasurementAttributeListListAttributeCallbackBridge::OnDone;
+
+private:
+    MTRSubscriptionEstablishedHandler mEstablishedHandler;
+};
+
+class MTRFreedomproGeneratedCommandListListAttributeCallbackBridge
+    : public MTRCallbackBridge<FreedomproGeneratedCommandListListAttributeCallback>
+{
+public:
+    MTRFreedomproGeneratedCommandListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler) :
+        MTRCallbackBridge<FreedomproGeneratedCommandListListAttributeCallback>(queue, handler, OnSuccessFn){};
+
+    MTRFreedomproGeneratedCommandListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler,
+                                                                 MTRActionBlock action) :
+        MTRCallbackBridge<FreedomproGeneratedCommandListListAttributeCallback>(queue, handler, action, OnSuccessFn){};
+
+    static void OnSuccessFn(void * context, const chip::app::DataModel::DecodableList<chip::CommandId> & value);
+};
+
+class MTRFreedomproGeneratedCommandListListAttributeCallbackSubscriptionBridge
+    : public MTRFreedomproGeneratedCommandListListAttributeCallbackBridge
+{
+public:
+    MTRFreedomproGeneratedCommandListListAttributeCallbackSubscriptionBridge(dispatch_queue_t queue, ResponseHandler handler,
+                                                                             MTRActionBlock action,
+                                                                             MTRSubscriptionEstablishedHandler establishedHandler) :
+        MTRFreedomproGeneratedCommandListListAttributeCallbackBridge(queue, handler, action),
+        mEstablishedHandler(establishedHandler)
+    {}
+
+    void OnSubscriptionEstablished();
+    using MTRFreedomproGeneratedCommandListListAttributeCallbackBridge::KeepAliveOnCallback;
+    using MTRFreedomproGeneratedCommandListListAttributeCallbackBridge::OnDone;
+
+private:
+    MTRSubscriptionEstablishedHandler mEstablishedHandler;
+};
+
+class MTRFreedomproAcceptedCommandListListAttributeCallbackBridge
+    : public MTRCallbackBridge<FreedomproAcceptedCommandListListAttributeCallback>
+{
+public:
+    MTRFreedomproAcceptedCommandListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler) :
+        MTRCallbackBridge<FreedomproAcceptedCommandListListAttributeCallback>(queue, handler, OnSuccessFn){};
+
+    MTRFreedomproAcceptedCommandListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler,
+                                                                MTRActionBlock action) :
+        MTRCallbackBridge<FreedomproAcceptedCommandListListAttributeCallback>(queue, handler, action, OnSuccessFn){};
+
+    static void OnSuccessFn(void * context, const chip::app::DataModel::DecodableList<chip::CommandId> & value);
+};
+
+class MTRFreedomproAcceptedCommandListListAttributeCallbackSubscriptionBridge
+    : public MTRFreedomproAcceptedCommandListListAttributeCallbackBridge
+{
+public:
+    MTRFreedomproAcceptedCommandListListAttributeCallbackSubscriptionBridge(dispatch_queue_t queue, ResponseHandler handler,
+                                                                            MTRActionBlock action,
+                                                                            MTRSubscriptionEstablishedHandler establishedHandler) :
+        MTRFreedomproAcceptedCommandListListAttributeCallbackBridge(queue, handler, action),
+        mEstablishedHandler(establishedHandler)
+    {}
+
+    void OnSubscriptionEstablished();
+    using MTRFreedomproAcceptedCommandListListAttributeCallbackBridge::KeepAliveOnCallback;
+    using MTRFreedomproAcceptedCommandListListAttributeCallbackBridge::OnDone;
+
+private:
+    MTRSubscriptionEstablishedHandler mEstablishedHandler;
+};
+
+class MTRFreedomproEventListListAttributeCallbackBridge : public MTRCallbackBridge<FreedomproEventListListAttributeCallback>
+{
+public:
+    MTRFreedomproEventListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler) :
+        MTRCallbackBridge<FreedomproEventListListAttributeCallback>(queue, handler, OnSuccessFn){};
+
+    MTRFreedomproEventListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler, MTRActionBlock action) :
+        MTRCallbackBridge<FreedomproEventListListAttributeCallback>(queue, handler, action, OnSuccessFn){};
+
+    static void OnSuccessFn(void * context, const chip::app::DataModel::DecodableList<chip::EventId> & value);
+};
+
+class MTRFreedomproEventListListAttributeCallbackSubscriptionBridge : public MTRFreedomproEventListListAttributeCallbackBridge
+{
+public:
+    MTRFreedomproEventListListAttributeCallbackSubscriptionBridge(dispatch_queue_t queue, ResponseHandler handler,
+                                                                  MTRActionBlock action,
+                                                                  MTRSubscriptionEstablishedHandler establishedHandler) :
+        MTRFreedomproEventListListAttributeCallbackBridge(queue, handler, action),
+        mEstablishedHandler(establishedHandler)
+    {}
+
+    void OnSubscriptionEstablished();
+    using MTRFreedomproEventListListAttributeCallbackBridge::KeepAliveOnCallback;
+    using MTRFreedomproEventListListAttributeCallbackBridge::OnDone;
+
+private:
+    MTRSubscriptionEstablishedHandler mEstablishedHandler;
+};
+
+class MTRFreedomproAttributeListListAttributeCallbackBridge : public MTRCallbackBridge<FreedomproAttributeListListAttributeCallback>
+{
+public:
+    MTRFreedomproAttributeListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler) :
+        MTRCallbackBridge<FreedomproAttributeListListAttributeCallback>(queue, handler, OnSuccessFn){};
+
+    MTRFreedomproAttributeListListAttributeCallbackBridge(dispatch_queue_t queue, ResponseHandler handler, MTRActionBlock action) :
+        MTRCallbackBridge<FreedomproAttributeListListAttributeCallback>(queue, handler, action, OnSuccessFn){};
+
+    static void OnSuccessFn(void * context, const chip::app::DataModel::DecodableList<chip::AttributeId> & value);
+};
+
+class MTRFreedomproAttributeListListAttributeCallbackSubscriptionBridge
+    : public MTRFreedomproAttributeListListAttributeCallbackBridge
+{
+public:
+    MTRFreedomproAttributeListListAttributeCallbackSubscriptionBridge(dispatch_queue_t queue, ResponseHandler handler,
+                                                                      MTRActionBlock action,
+                                                                      MTRSubscriptionEstablishedHandler establishedHandler) :
+        MTRFreedomproAttributeListListAttributeCallbackBridge(queue, handler, action),
+        mEstablishedHandler(establishedHandler)
+    {}
+
+    void OnSubscriptionEstablished();
+    using MTRFreedomproAttributeListListAttributeCallbackBridge::KeepAliveOnCallback;
+    using MTRFreedomproAttributeListListAttributeCallbackBridge::OnDone;
 
 private:
     MTRSubscriptionEstablishedHandler mEstablishedHandler;

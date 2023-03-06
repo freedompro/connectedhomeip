@@ -4939,6 +4939,60 @@ static constexpr AttributeId Id = Globals::Attributes::ClusterRevision::Id;
 } // namespace Attributes
 } // namespace ClientMonitoring
 
+namespace Freedompro {
+namespace Attributes {
+
+namespace Uid {
+static constexpr AttributeId Id = 0x00000000;
+} // namespace Uid
+
+namespace Disable {
+static constexpr AttributeId Id = 0x00000001;
+} // namespace Disable
+
+namespace InputType {
+static constexpr AttributeId Id = 0x00000002;
+} // namespace InputType
+
+namespace EnableInputPair {
+static constexpr AttributeId Id = 0x00000003;
+} // namespace EnableInputPair
+
+namespace DelayOff {
+static constexpr AttributeId Id = 0x00000004;
+} // namespace DelayOff
+
+namespace Time {
+static constexpr AttributeId Id = 0x00000005;
+} // namespace Time
+
+namespace GeneratedCommandList {
+static constexpr AttributeId Id = Globals::Attributes::GeneratedCommandList::Id;
+} // namespace GeneratedCommandList
+
+namespace AcceptedCommandList {
+static constexpr AttributeId Id = Globals::Attributes::AcceptedCommandList::Id;
+} // namespace AcceptedCommandList
+
+namespace EventList {
+static constexpr AttributeId Id = Globals::Attributes::EventList::Id;
+} // namespace EventList
+
+namespace AttributeList {
+static constexpr AttributeId Id = Globals::Attributes::AttributeList::Id;
+} // namespace AttributeList
+
+namespace FeatureMap {
+static constexpr AttributeId Id = Globals::Attributes::FeatureMap::Id;
+} // namespace FeatureMap
+
+namespace ClusterRevision {
+static constexpr AttributeId Id = Globals::Attributes::ClusterRevision::Id;
+} // namespace ClusterRevision
+
+} // namespace Attributes
+} // namespace Freedompro
+
 namespace UnitTesting {
 namespace Attributes {
 

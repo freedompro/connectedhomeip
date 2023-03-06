@@ -220,6 +220,9 @@ public final class ChipIdLookup {
     if (clusterId == 4166L) {
       return "ClientMonitoring";
     }
+    if (clusterId == 336722945L) {
+      return "Freedompro";
+    }
     if (clusterId == 4294048773L) {
       return "UnitTesting";
     }
@@ -3654,6 +3657,45 @@ public final class ChipIdLookup {
       }
       return "";
     }
+    if (clusterId == 336722945L) {
+      if (attributeId == 0L) {
+        return "Uid";
+      }
+      if (attributeId == 1L) {
+        return "Disable";
+      }
+      if (attributeId == 2L) {
+        return "InputType";
+      }
+      if (attributeId == 3L) {
+        return "EnableInputPair";
+      }
+      if (attributeId == 4L) {
+        return "DelayOff";
+      }
+      if (attributeId == 5L) {
+        return "Time";
+      }
+      if (attributeId == 65528L) {
+        return "GeneratedCommandList";
+      }
+      if (attributeId == 65529L) {
+        return "AcceptedCommandList";
+      }
+      if (attributeId == 65530L) {
+        return "EventList";
+      }
+      if (attributeId == 65531L) {
+        return "AttributeList";
+      }
+      if (attributeId == 65532L) {
+        return "FeatureMap";
+      }
+      if (attributeId == 65533L) {
+        return "ClusterRevision";
+      }
+      return "";
+    }
     if (clusterId == 4294048773L) {
       if (attributeId == 0L) {
         return "Boolean";
@@ -4296,6 +4338,9 @@ public final class ChipIdLookup {
       return "";
     }
     if (clusterId == 4166L) {
+      return "";
+    }
+    if (clusterId == 336722945L) {
       return "";
     }
     if (clusterId == 4294048773L) {

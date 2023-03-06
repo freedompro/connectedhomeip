@@ -15460,6 +15460,170 @@ public class ClusterReadMapping {
         "readClusterRevisionAttribute",
         readClientMonitoringClusterRevisionAttributeInteractionInfo);
     readAttributeMap.put("clientMonitoring", readClientMonitoringInteractionInfo);
+    Map<String, InteractionInfo> readFreedomproInteractionInfo = new LinkedHashMap<>();
+    Map<String, CommandParameterInfo> readFreedomproUidCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproUidAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readUidAttribute((ChipClusters.CharStringAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedCharStringAttributeCallback(),
+            readFreedomproUidCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readUidAttribute", readFreedomproUidAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproDisableCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproDisableAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readDisableAttribute(
+                      (ChipClusters.FreedomproCluster.DisableAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedFreedomproClusterDisableAttributeCallback(),
+            readFreedomproDisableCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readDisableAttribute", readFreedomproDisableAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproInputTypeCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproInputTypeAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readInputTypeAttribute(
+                      (ChipClusters.FreedomproCluster.InputTypeAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedFreedomproClusterInputTypeAttributeCallback(),
+            readFreedomproInputTypeCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readInputTypeAttribute", readFreedomproInputTypeAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproEnableInputPairCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproEnableInputPairAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readEnableInputPairAttribute(
+                      (ChipClusters.FreedomproCluster.EnableInputPairAttributeCallback) callback);
+            },
+            () ->
+                new ClusterInfoMapping.DelegatedFreedomproClusterEnableInputPairAttributeCallback(),
+            readFreedomproEnableInputPairCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readEnableInputPairAttribute", readFreedomproEnableInputPairAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproDelayOffCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproDelayOffAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readDelayOffAttribute(
+                      (ChipClusters.FreedomproCluster.DelayOffAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedFreedomproClusterDelayOffAttributeCallback(),
+            readFreedomproDelayOffCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readDelayOffAttribute", readFreedomproDelayOffAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproTimeCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproTimeAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readTimeAttribute(
+                      (ChipClusters.FreedomproCluster.TimeAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedFreedomproClusterTimeAttributeCallback(),
+            readFreedomproTimeCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readTimeAttribute", readFreedomproTimeAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproGeneratedCommandListCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproGeneratedCommandListAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readGeneratedCommandListAttribute(
+                      (ChipClusters.FreedomproCluster.GeneratedCommandListAttributeCallback)
+                          callback);
+            },
+            () ->
+                new ClusterInfoMapping
+                    .DelegatedFreedomproClusterGeneratedCommandListAttributeCallback(),
+            readFreedomproGeneratedCommandListCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readGeneratedCommandListAttribute",
+        readFreedomproGeneratedCommandListAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproAcceptedCommandListCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproAcceptedCommandListAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readAcceptedCommandListAttribute(
+                      (ChipClusters.FreedomproCluster.AcceptedCommandListAttributeCallback)
+                          callback);
+            },
+            () ->
+                new ClusterInfoMapping
+                    .DelegatedFreedomproClusterAcceptedCommandListAttributeCallback(),
+            readFreedomproAcceptedCommandListCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readAcceptedCommandListAttribute",
+        readFreedomproAcceptedCommandListAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproEventListCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproEventListAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readEventListAttribute(
+                      (ChipClusters.FreedomproCluster.EventListAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedFreedomproClusterEventListAttributeCallback(),
+            readFreedomproEventListCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readEventListAttribute", readFreedomproEventListAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproAttributeListCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproAttributeListAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readAttributeListAttribute(
+                      (ChipClusters.FreedomproCluster.AttributeListAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedFreedomproClusterAttributeListAttributeCallback(),
+            readFreedomproAttributeListCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readAttributeListAttribute", readFreedomproAttributeListAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproFeatureMapCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproFeatureMapAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readFeatureMapAttribute((ChipClusters.LongAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedLongAttributeCallback(),
+            readFreedomproFeatureMapCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readFeatureMapAttribute", readFreedomproFeatureMapAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproClusterRevisionCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproClusterRevisionAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readClusterRevisionAttribute((ChipClusters.IntegerAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedIntegerAttributeCallback(),
+            readFreedomproClusterRevisionCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readClusterRevisionAttribute", readFreedomproClusterRevisionAttributeInteractionInfo);
+    readAttributeMap.put("freedompro", readFreedomproInteractionInfo);
     Map<String, InteractionInfo> readUnitTestingInteractionInfo = new LinkedHashMap<>();
     Map<String, CommandParameterInfo> readUnitTestingBooleanCommandParams =
         new LinkedHashMap<String, CommandParameterInfo>();

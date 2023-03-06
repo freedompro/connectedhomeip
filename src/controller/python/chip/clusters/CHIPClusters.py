@@ -8463,6 +8463,91 @@ class ChipClusters:
             },
         },
     }
+    _FREEDOMPRO_CLUSTER_INFO = {
+        "clusterName": "Freedompro",
+        "clusterId": 0x1411FC01,
+        "commands": {
+        },
+        "attributes": {
+            0x00000000: {
+                "attributeName": "Uid",
+                "attributeId": 0x00000000,
+                "type": "str",
+                "reportable": True,
+            },
+            0x00000001: {
+                "attributeName": "Disable",
+                "attributeId": 0x00000001,
+                "type": "bool",
+                "reportable": True,
+                "writable": True,
+            },
+            0x00000002: {
+                "attributeName": "InputType",
+                "attributeId": 0x00000002,
+                "type": "int",
+                "reportable": True,
+                "writable": True,
+            },
+            0x00000003: {
+                "attributeName": "EnableInputPair",
+                "attributeId": 0x00000003,
+                "type": "bool",
+                "reportable": True,
+                "writable": True,
+            },
+            0x00000004: {
+                "attributeName": "DelayOff",
+                "attributeId": 0x00000004,
+                "type": "int",
+                "reportable": True,
+                "writable": True,
+            },
+            0x00000005: {
+                "attributeName": "Time",
+                "attributeId": 0x00000005,
+                "type": "int",
+                "reportable": True,
+                "writable": True,
+            },
+            0x0000FFF8: {
+                "attributeName": "GeneratedCommandList",
+                "attributeId": 0x0000FFF8,
+                "type": "int",
+                "reportable": True,
+            },
+            0x0000FFF9: {
+                "attributeName": "AcceptedCommandList",
+                "attributeId": 0x0000FFF9,
+                "type": "int",
+                "reportable": True,
+            },
+            0x0000FFFA: {
+                "attributeName": "EventList",
+                "attributeId": 0x0000FFFA,
+                "type": "int",
+                "reportable": True,
+            },
+            0x0000FFFB: {
+                "attributeName": "AttributeList",
+                "attributeId": 0x0000FFFB,
+                "type": "int",
+                "reportable": True,
+            },
+            0x0000FFFC: {
+                "attributeName": "FeatureMap",
+                "attributeId": 0x0000FFFC,
+                "type": "int",
+                "reportable": True,
+            },
+            0x0000FFFD: {
+                "attributeName": "ClusterRevision",
+                "attributeId": 0x0000FFFD,
+                "type": "int",
+                "reportable": True,
+            },
+        },
+    }
     _UNIT_TESTING_CLUSTER_INFO = {
         "clusterName": "UnitTesting",
         "clusterId": 0xFFF1FC05,
@@ -9308,6 +9393,7 @@ class ChipClusters:
         0x0000050E: _ACCOUNT_LOGIN_CLUSTER_INFO,
         0x00000B04: _ELECTRICAL_MEASUREMENT_CLUSTER_INFO,
         0x00001046: _CLIENT_MONITORING_CLUSTER_INFO,
+        0x1411FC01: _FREEDOMPRO_CLUSTER_INFO,
         0xFFF1FC05: _UNIT_TESTING_CLUSTER_INFO,
     }
 
@@ -9377,6 +9463,7 @@ class ChipClusters:
         "AccountLogin": _ACCOUNT_LOGIN_CLUSTER_INFO,
         "ElectricalMeasurement": _ELECTRICAL_MEASUREMENT_CLUSTER_INFO,
         "ClientMonitoring": _CLIENT_MONITORING_CLUSTER_INFO,
+        "Freedompro": _FREEDOMPRO_CLUSTER_INFO,
         "UnitTesting": _UNIT_TESTING_CLUSTER_INFO,
     }
 

@@ -86,6 +86,8 @@
 #define EMBER_AF_ACCOUNT_LOGIN_CLUSTER_CLIENT_ENDPOINT_COUNT (1)
 #define EMBER_AF_ELECTRICAL_MEASUREMENT_CLUSTER_CLIENT_ENDPOINT_COUNT (1)
 #define EMBER_AF_CLIENT_MONITORING_CLUSTER_CLIENT_ENDPOINT_COUNT (1)
+#define EMBER_AF_FREEDOMPRO_CLUSTER_CLIENT_ENDPOINT_COUNT (1)
+#define EMBER_AF_FREEDOMPRO_CLUSTER_SERVER_ENDPOINT_COUNT (1)
 #define EMBER_AF_UNIT_TESTING_CLUSTER_CLIENT_ENDPOINT_COUNT (1)
 
 /**** Cluster Plugins ****/
@@ -349,6 +351,15 @@
 // Use this macro to check if the client side of the Client Monitoring cluster is included
 #define ZCL_USING_CLIENT_MONITORING_CLUSTER_CLIENT
 #define EMBER_AF_PLUGIN_CLIENT_MONITORING_CLIENT
+
+// Use this macro to check if the client side of the Freedompro cluster is included
+#define ZCL_USING_FREEDOMPRO_CLUSTER_CLIENT
+#define EMBER_AF_PLUGIN_FREEDOMPRO_CLIENT
+
+// Use this macro to check if the server side of the Freedompro cluster is included
+#define ZCL_USING_FREEDOMPRO_CLUSTER_SERVER
+#define EMBER_AF_PLUGIN_FREEDOMPRO_SERVER
+#define EMBER_AF_PLUGIN_FREEDOMPRO
 
 // Use this macro to check if the client side of the Unit Testing cluster is included
 #define ZCL_USING_UNIT_TESTING_CLUSTER_CLIENT

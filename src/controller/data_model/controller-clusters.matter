@@ -5007,6 +5007,38 @@ client cluster ClientMonitoring = 4166 {
   command access(invoke: manage) StayAwakeRequest(): DefaultSuccess = 2;
 }
 
+/** The Freedompro Cluster provides a fabric feature. */
+client cluster Freedompro = 336722945 {
+  readonly attribute char_string<64> uid = 0;
+  attribute optional nullable boolean disable = 1;
+  attribute optional nullable int32u inputType = 2;
+  attribute optional nullable boolean enableInputPair = 3;
+  attribute optional nullable int32u delayOff = 4;
+  attribute optional nullable int32u time = 5;
+  readonly attribute command_id generatedCommandList[] = 65528;
+  readonly attribute command_id acceptedCommandList[] = 65529;
+  readonly attribute event_id eventList[] = 65530;
+  readonly attribute attrib_id attributeList[] = 65531;
+  readonly attribute bitmap32 featureMap = 65532;
+  readonly attribute int16u clusterRevision = 65533;
+}
+
+/** The Freedompro Cluster provides a fabric feature. */
+server cluster Freedompro = 336722945 {
+  readonly attribute char_string<64> uid = 0;
+  attribute nullable boolean disable = 1;
+  attribute nullable int32u inputType = 2;
+  attribute nullable boolean enableInputPair = 3;
+  attribute nullable int32u delayOff = 4;
+  attribute nullable int32u time = 5;
+  readonly attribute command_id generatedCommandList[] = 65528;
+  readonly attribute command_id acceptedCommandList[] = 65529;
+  readonly attribute event_id eventList[] = 65530;
+  readonly attribute attrib_id attributeList[] = 65531;
+  readonly attribute bitmap32 featureMap = 65532;
+  readonly attribute int16u clusterRevision = 65533;
+}
+
 /** The Test Cluster is meant to validate the generated code */
 client cluster UnitTesting = 4294048773 {
   enum SimpleEnum : ENUM8 {
@@ -5453,36 +5485,6 @@ client cluster UnitTesting = 4294048773 {
   command TestEmitTestFabricScopedEventRequest(TestEmitTestFabricScopedEventRequestRequest): TestEmitTestFabricScopedEventResponse = 21;
 }
 
-client cluster Freedompro = 336722945 {
-  readonly attribute char_string<64> uid = 0;
-  attribute nullable boolean disable = 1;
-  attribute nullable int32u inputType = 2;
-  attribute nullable boolean enableInputPair = 3;
-  attribute nullable int32u delayOff = 4;
-  attribute nullable int32u time = 5;
-  readonly attribute command_id generatedCommandList[] = 65528;
-  readonly attribute command_id acceptedCommandList[] = 65529;
-  readonly attribute event_id eventList[] = 65530;
-  readonly attribute attrib_id attributeList[] = 65531;
-  readonly attribute bitmap32 featureMap = 65532;
-  readonly attribute int16u clusterRevision = 65533;
-}
-
-server cluster Freedompro = 336722945 {
-  readonly attribute char_string<64> uid = 0;
-  attribute nullable boolean disable = 1;
-  attribute nullable int32u inputType = 2;
-  attribute nullable boolean enableInputPair = 3;
-  attribute nullable int32u delayOff = 4;
-  attribute nullable int32u time = 5;
-  readonly attribute command_id generatedCommandList[] = 65528;
-  readonly attribute command_id acceptedCommandList[] = 65529;
-  readonly attribute event_id eventList[] = 65530;
-  readonly attribute attrib_id attributeList[] = 65531;
-  readonly attribute bitmap32 featureMap = 65532;
-  readonly attribute int16u clusterRevision = 65533;
-}
-
 endpoint 1 {
   device type rootdevice = 22, version 1;
   binding cluster Identify;
@@ -5564,7 +5566,9 @@ endpoint 1 {
     callback attribute acceptedCommandList;
     callback attribute eventList;
     callback attribute attributeList;
-    ram      attribute featureMap;
+    ram      attribute featureMap default = 0;
     ram      attribute clusterRevision default = 1;
   }
 }
+
+

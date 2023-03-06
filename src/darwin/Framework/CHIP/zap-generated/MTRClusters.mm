@@ -27505,6 +27505,214 @@ static void MTRClustersLogCompletion(NSString * logPrefix, id value, NSError * e
 }
 @end
 
+@implementation MTRClusterFreedompro
+
+- (instancetype)initWithDevice:(MTRDevice *)device endpointID:(NSNumber *)endpointID queue:(dispatch_queue_t)queue
+{
+    if (self = [super initWithQueue:queue]) {
+        if (device == nil) {
+            return nil;
+        }
+
+        _endpoint = [endpointID unsignedShortValue];
+        _device = device;
+    }
+    return self;
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeUidWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeUidID)
+                                             params:params];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeDisableWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeDisableID)
+                                             params:params];
+}
+
+- (void)writeAttributeDisableWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                 expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+{
+    [self writeAttributeDisableWithValue:dataValueDictionary expectedValueInterval:expectedValueIntervalMs params:nil];
+}
+- (void)writeAttributeDisableWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                 expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+                                params:(MTRWriteParams * _Nullable)params
+{
+    NSNumber * timedWriteTimeout = params.timedWriteTimeout;
+
+    [self.device writeAttributeWithEndpointID:@(_endpoint)
+                                    clusterID:@(MTRClusterIDTypeFreedomproID)
+                                  attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeDisableID)
+                                        value:dataValueDictionary
+                        expectedValueInterval:expectedValueIntervalMs
+                            timedWriteTimeout:timedWriteTimeout];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeInputTypeWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeInputTypeID)
+                                             params:params];
+}
+
+- (void)writeAttributeInputTypeWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                   expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+{
+    [self writeAttributeInputTypeWithValue:dataValueDictionary expectedValueInterval:expectedValueIntervalMs params:nil];
+}
+- (void)writeAttributeInputTypeWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                   expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+                                  params:(MTRWriteParams * _Nullable)params
+{
+    NSNumber * timedWriteTimeout = params.timedWriteTimeout;
+
+    [self.device writeAttributeWithEndpointID:@(_endpoint)
+                                    clusterID:@(MTRClusterIDTypeFreedomproID)
+                                  attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeInputTypeID)
+                                        value:dataValueDictionary
+                        expectedValueInterval:expectedValueIntervalMs
+                            timedWriteTimeout:timedWriteTimeout];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeEnableInputPairWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeEnableInputPairID)
+                                             params:params];
+}
+
+- (void)writeAttributeEnableInputPairWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                         expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+{
+    [self writeAttributeEnableInputPairWithValue:dataValueDictionary expectedValueInterval:expectedValueIntervalMs params:nil];
+}
+- (void)writeAttributeEnableInputPairWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                         expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+                                        params:(MTRWriteParams * _Nullable)params
+{
+    NSNumber * timedWriteTimeout = params.timedWriteTimeout;
+
+    [self.device writeAttributeWithEndpointID:@(_endpoint)
+                                    clusterID:@(MTRClusterIDTypeFreedomproID)
+                                  attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeEnableInputPairID)
+                                        value:dataValueDictionary
+                        expectedValueInterval:expectedValueIntervalMs
+                            timedWriteTimeout:timedWriteTimeout];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeDelayOffWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeDelayOffID)
+                                             params:params];
+}
+
+- (void)writeAttributeDelayOffWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                  expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+{
+    [self writeAttributeDelayOffWithValue:dataValueDictionary expectedValueInterval:expectedValueIntervalMs params:nil];
+}
+- (void)writeAttributeDelayOffWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+                  expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+                                 params:(MTRWriteParams * _Nullable)params
+{
+    NSNumber * timedWriteTimeout = params.timedWriteTimeout;
+
+    [self.device writeAttributeWithEndpointID:@(_endpoint)
+                                    clusterID:@(MTRClusterIDTypeFreedomproID)
+                                  attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeDelayOffID)
+                                        value:dataValueDictionary
+                        expectedValueInterval:expectedValueIntervalMs
+                            timedWriteTimeout:timedWriteTimeout];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeTimeWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeTimeID)
+                                             params:params];
+}
+
+- (void)writeAttributeTimeWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+              expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+{
+    [self writeAttributeTimeWithValue:dataValueDictionary expectedValueInterval:expectedValueIntervalMs params:nil];
+}
+- (void)writeAttributeTimeWithValue:(NSDictionary<NSString *, id> *)dataValueDictionary
+              expectedValueInterval:(NSNumber *)expectedValueIntervalMs
+                             params:(MTRWriteParams * _Nullable)params
+{
+    NSNumber * timedWriteTimeout = params.timedWriteTimeout;
+
+    [self.device writeAttributeWithEndpointID:@(_endpoint)
+                                    clusterID:@(MTRClusterIDTypeFreedomproID)
+                                  attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeTimeID)
+                                        value:dataValueDictionary
+                        expectedValueInterval:expectedValueIntervalMs
+                            timedWriteTimeout:timedWriteTimeout];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeGeneratedCommandListWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeGeneratedCommandListID)
+                                             params:params];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeAcceptedCommandListWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeAcceptedCommandListID)
+                                             params:params];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeEventListWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeEventListID)
+                                             params:params];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeAttributeListWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeAttributeListID)
+                                             params:params];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeFeatureMapWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeFeatureMapID)
+                                             params:params];
+}
+
+- (NSDictionary<NSString *, id> *)readAttributeClusterRevisionWithParams:(MTRReadParams * _Nullable)params
+{
+    return [self.device readAttributeWithEndpointID:@(_endpoint)
+                                          clusterID:@(MTRClusterIDTypeFreedomproID)
+                                        attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeClusterRevisionID)
+                                             params:params];
+}
+
+@end
+
 @implementation MTRClusterUnitTesting
 
 - (instancetype)initWithDevice:(MTRDevice *)device endpointID:(NSNumber *)endpointID queue:(dispatch_queue_t)queue

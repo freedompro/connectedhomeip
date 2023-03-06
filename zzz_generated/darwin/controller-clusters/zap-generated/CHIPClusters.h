@@ -632,6 +632,15 @@ public:
     ~ClientMonitoringCluster() {}
 };
 
+class DLL_EXPORT FreedomproCluster : public ClusterBase
+{
+public:
+    FreedomproCluster(Messaging::ExchangeManager & exchangeManager, const SessionHandle & session, EndpointId endpoint) :
+        ClusterBase(exchangeManager, session, endpoint)
+    {}
+    ~FreedomproCluster() {}
+};
+
 class DLL_EXPORT UnitTestingCluster : public ClusterBase
 {
 public:
