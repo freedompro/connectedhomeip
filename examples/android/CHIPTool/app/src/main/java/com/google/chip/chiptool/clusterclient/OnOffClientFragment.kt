@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import chip.devicecontroller.ChipClusters
+import chip.devicecontroller.ChipClusters.FreedomproCluster
 import chip.devicecontroller.ChipClusters.OnOffCluster
 import chip.devicecontroller.ChipDeviceController
 import com.google.chip.chiptool.ChipClient
@@ -82,10 +83,10 @@ class OnOffClientFragment : Fragment() {
   }
 
   private suspend fun sendReadOnOffClick() {
-    getOnOffClusterForDevice().readOnOffAttribute(object : ChipClusters.BooleanAttributeCallback {
-      override fun onSuccess(on: Boolean) {
-        Log.v(TAG, "On/Off attribute value: $on")
-        showMessage("On/Off attribute value: $on")
+    getOnOffClusterForDevice().readDelayOffAttribute(object : FreedomproCluster.DelayOffAttributeCallback {
+      override fun onSuccess(value: Long?) {
+        Log.v(TAG, "On/Off attribute value: $value")
+        showMessage("On/Off attribute value: $value")
       }
 
       override fun onError(ex: Exception) {
@@ -139,7 +140,7 @@ class OnOffClientFragment : Fragment() {
         Log.e(TAG, "Error configuring on/off attribute", ex)
       }
     }
-    onOffCluster.subscribeOnOffAttribute(subscribeCallback, minInterval, maxInterval)
+//    onOffCluster.subscribeOnOffAttribute(subscribeCallback, minInterval, maxInterval)
   }
 
   inner class ChipControllerCallback : GenericChipDeviceListener() {
@@ -182,21 +183,21 @@ class OnOffClientFragment : Fragment() {
   }
 
   private suspend fun sendOnCommandClick() {
-    getOnOffClusterForDevice().on(object : ChipClusters.DefaultClusterCallback {
-      override fun onSuccess() {
-        showMessage("ON command success")
-      }
-
-      override fun onError(ex: Exception) {
-        showMessage("ON command failure $ex")
-        Log.e(TAG, "ON command failure", ex)
-      }
-
-    })
+//    getOnOffClusterForDevice().on(object : ChipClusters.DefaultClusterCallback {
+//      override fun onSuccess() {
+//        showMessage("ON command success")
+//      }
+//
+//      override fun onError(ex: Exception) {
+//        showMessage("ON command failure $ex")
+//        Log.e(TAG, "ON command failure", ex)
+//      }
+//
+//    })
   }
 
   private suspend fun sendOffCommandClick() {
-    getOnOffClusterForDevice().off(object : ChipClusters.DefaultClusterCallback {
+    getOnOffClusterForDevice().writeDelayOffAttribute(object : ChipClusters.DefaultClusterCallback {
       override fun onSuccess() {
         showMessage("OFF command success")
       }
@@ -205,11 +206,11 @@ class OnOffClientFragment : Fragment() {
         showMessage("OFF command failure $ex")
         Log.e(TAG, "OFF command failure", ex)
       }
-    })
+    }, 4)
   }
 
   private suspend fun sendToggleCommandClick() {
-    getOnOffClusterForDevice().toggle(object : ChipClusters.DefaultClusterCallback {
+    getOnOffClusterForDevice().writeEnableInputPairAttribute(object : ChipClusters.DefaultClusterCallback {
       override fun onSuccess() {
         showMessage("TOGGLE command success")
       }
@@ -218,14 +219,13 @@ class OnOffClientFragment : Fragment() {
         showMessage("TOGGLE command failure $ex")
         Log.e(TAG, "TOGGLE command failure", ex)
       }
-    })
+    }, true)
   }
 
-  private suspend fun getOnOffClusterForDevice(): OnOffCluster {
-    return OnOffCluster(
-
+  private suspend fun getOnOffClusterForDevice(): FreedomproCluster {
+    return FreedomproCluster(
       ChipClient.getConnectedDevicePointer(requireContext(), addressUpdateFragment.deviceId),
-      addressUpdateFragment.endpointId
+      0
     )
   }
 

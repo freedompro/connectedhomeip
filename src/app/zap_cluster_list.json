@@ -48,6 +48,7 @@
         "LOCALIZATION_CONFIGURATION_CLUSTER": [
             "localization-configuration-server"
         ],
+        "FREEDOMPRO_CLUSTER": ["freedompro-server"],
         "LOW_POWER_CLUSTER": ["low-power-server"],
         "MEDIA_INPUT_CLUSTER": ["media-input-server"],
         "MEDIA_PLAYBACK_CLUSTER": ["media-playback-server"],
@@ -140,6 +141,7 @@
         "KEYPAD_INPUT_CLUSTER": [],
         "LEVEL_CONTROL_CLUSTER": [],
         "LOCALIZATION_CONFIGURATION_CLUSTER": [],
+        "FREEDOMPRO_CLUSTER": [],
         "LOW_POWER_CLUSTER": [],
         "MEDIA_INPUT_CLUSTER": [],
         "MEDIA_PLAYBACK_CLUSTER": [],

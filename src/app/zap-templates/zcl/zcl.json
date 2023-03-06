@@ -81,6 +81,7 @@
         "time-format-localization-cluster.xml",
         "time-synchronization-cluster.xml",
         "user-label-cluster.xml",
+        "freedompro-cluster.xml",
         "unit-localization-cluster.xml",
         "wake-on-lan-cluster.xml",
         "wifi-network-diagnostics-cluster.xml",
