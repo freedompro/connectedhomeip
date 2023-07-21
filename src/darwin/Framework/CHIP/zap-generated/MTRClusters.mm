@@ -23489,14 +23489,6 @@ static void MTRClustersLogCompletion(NSString *logPrefix, id value, NSError *err
 
 
 
-
-- (NSDictionary<NSString *, id> *)readAttributeEventListWithParams:(MTRReadParams * _Nullable)params {
-    return [self.device readAttributeWithEndpointID:@(_endpoint) clusterID:@(MTRClusterIDTypeFreedomproID) attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeEventListID) params:params];
-}
-
-
-
-
 - (NSDictionary<NSString *, id> *)readAttributeAttributeListWithParams:(MTRReadParams * _Nullable)params {
     return [self.device readAttributeWithEndpointID:@(_endpoint) clusterID:@(MTRClusterIDTypeFreedomproID) attributeID:@(MTRAttributeIDTypeClusterFreedomproAttributeAttributeListID) params:params];
 }
