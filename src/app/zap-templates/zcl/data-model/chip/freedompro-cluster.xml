@@ -43,5 +43,8 @@ limitations under the License.
 
     <attribute side="server" code="0x05" define="TIME" type="INT32U"
       writable="true" isNullable="true" optional="true">time</attribute>
+
+    <attribute side="server" code="0x06" define="PINCODE" type="CHAR_STRING"
+      writable="false" isNullable="false" optional="true">pincode</attribute>
   </cluster>
 </configurator>
