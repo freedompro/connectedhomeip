@@ -15539,6 +15539,18 @@ public class ClusterReadMapping {
             readFreedomproTimeCommandParams);
     readFreedomproInteractionInfo.put(
         "readTimeAttribute", readFreedomproTimeAttributeInteractionInfo);
+    Map<String, CommandParameterInfo> readFreedomproPincodeCommandParams =
+        new LinkedHashMap<String, CommandParameterInfo>();
+    InteractionInfo readFreedomproPincodeAttributeInteractionInfo =
+        new InteractionInfo(
+            (cluster, callback, commandArguments) -> {
+              ((ChipClusters.FreedomproCluster) cluster)
+                  .readPincodeAttribute((ChipClusters.CharStringAttributeCallback) callback);
+            },
+            () -> new ClusterInfoMapping.DelegatedCharStringAttributeCallback(),
+            readFreedomproPincodeCommandParams);
+    readFreedomproInteractionInfo.put(
+        "readPincodeAttribute", readFreedomproPincodeAttributeInteractionInfo);
     Map<String, CommandParameterInfo> readFreedomproGeneratedCommandListCommandParams =
         new LinkedHashMap<String, CommandParameterInfo>();
     InteractionInfo readFreedomproGeneratedCommandListAttributeInteractionInfo =

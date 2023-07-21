@@ -3676,6 +3676,9 @@ public final class ChipIdLookup {
       if (attributeId == 5L) {
         return "Time";
       }
+      if (attributeId == 6L) {
+        return "Pincode";
+      }
       if (attributeId == 65528L) {
         return "GeneratedCommandList";
       }

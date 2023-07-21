@@ -27989,6 +27989,15 @@ public class ChipClusters {
       subscribeTimeAttribute(chipClusterPtr, callback, minInterval, maxInterval);
     }
 
+    public void readPincodeAttribute(CharStringAttributeCallback callback) {
+      readPincodeAttribute(chipClusterPtr, callback);
+    }
+
+    public void subscribePincodeAttribute(
+        CharStringAttributeCallback callback, int minInterval, int maxInterval) {
+      subscribePincodeAttribute(chipClusterPtr, callback, minInterval, maxInterval);
+    }
+
     public void readGeneratedCommandListAttribute(GeneratedCommandListAttributeCallback callback) {
       readGeneratedCommandListAttribute(chipClusterPtr, callback);
     }
@@ -28112,6 +28121,15 @@ public class ChipClusters {
 
     private native void subscribeTimeAttribute(
         long chipClusterPtr, TimeAttributeCallback callback, int minInterval, int maxInterval);
+
+    private native void readPincodeAttribute(
+        long chipClusterPtr, CharStringAttributeCallback callback);
+
+    private native void subscribePincodeAttribute(
+        long chipClusterPtr,
+        CharStringAttributeCallback callback,
+        int minInterval,
+        int maxInterval);
 
     private native void readGeneratedCommandListAttribute(
         long chipClusterPtr, GeneratedCommandListAttributeCallback callback);

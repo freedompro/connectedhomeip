@@ -55,6 +55,7 @@ static constexpr AttributeId Id = 0x0000FFFD;
 } // namespace Attributes
 } // namespace Globals
 
+
 namespace Identify {
 namespace Attributes {
 
@@ -4966,6 +4967,10 @@ namespace Time {
 static constexpr AttributeId Id = 0x00000005;
 } // namespace Time
 
+namespace Pincode {
+static constexpr AttributeId Id = 0x00000006;
+} // namespace Pincode
+
 namespace GeneratedCommandList {
 static constexpr AttributeId Id = Globals::Attributes::GeneratedCommandList::Id;
 } // namespace GeneratedCommandList
@@ -5380,6 +5385,7 @@ static constexpr AttributeId Id = Globals::Attributes::ClusterRevision::Id;
 
 } // namespace Attributes
 } // namespace FaultInjection
+
 
 } // namespace Clusters
 } // namespace app

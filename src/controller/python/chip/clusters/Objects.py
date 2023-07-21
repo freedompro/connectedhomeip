@@ -29298,6 +29298,7 @@ class Freedompro(Cluster):
                 ClusterObjectFieldDescriptor(Label="enableInputPair", Tag=0x00000003, Type=typing.Union[None, Nullable, bool]),
                 ClusterObjectFieldDescriptor(Label="delayOff", Tag=0x00000004, Type=typing.Union[None, Nullable, uint]),
                 ClusterObjectFieldDescriptor(Label="time", Tag=0x00000005, Type=typing.Union[None, Nullable, uint]),
+                ClusterObjectFieldDescriptor(Label="pincode", Tag=0x00000006, Type=typing.Optional[str]),
                 ClusterObjectFieldDescriptor(Label="generatedCommandList", Tag=0x0000FFF8, Type=typing.List[uint]),
                 ClusterObjectFieldDescriptor(Label="acceptedCommandList", Tag=0x0000FFF9, Type=typing.List[uint]),
                 ClusterObjectFieldDescriptor(Label="eventList", Tag=0x0000FFFA, Type=typing.List[uint]),
@@ -29312,6 +29313,7 @@ class Freedompro(Cluster):
     enableInputPair: 'typing.Union[None, Nullable, bool]' = None
     delayOff: 'typing.Union[None, Nullable, uint]' = None
     time: 'typing.Union[None, Nullable, uint]' = None
+    pincode: 'typing.Optional[str]' = None
     generatedCommandList: 'typing.List[uint]' = None
     acceptedCommandList: 'typing.List[uint]' = None
     eventList: 'typing.List[uint]' = None
@@ -29415,6 +29417,22 @@ class Freedompro(Cluster):
                 return ClusterObjectFieldDescriptor(Type=typing.Union[None, Nullable, uint])
 
             value: 'typing.Union[None, Nullable, uint]' = None
+
+        @dataclass
+        class Pincode(ClusterAttributeDescriptor):
+            @ChipUtility.classproperty
+            def cluster_id(cls) -> int:
+                return 0x1411FC01
+
+            @ChipUtility.classproperty
+            def attribute_id(cls) -> int:
+                return 0x00000006
+
+            @ChipUtility.classproperty
+            def attribute_type(cls) -> ClusterObjectFieldDescriptor:
+                return ClusterObjectFieldDescriptor(Type=typing.Optional[str])
+
+            value: 'typing.Optional[str]' = None
 
         @dataclass
         class GeneratedCommandList(ClusterAttributeDescriptor):

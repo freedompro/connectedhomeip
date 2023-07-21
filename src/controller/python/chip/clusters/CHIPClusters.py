@@ -8510,6 +8510,12 @@ class ChipClusters:
                 "reportable": True,
                 "writable": True,
             },
+            0x00000006: {
+                "attributeName": "Pincode",
+                "attributeId": 0x00000006,
+                "type": "str",
+                "reportable": True,
+            },
             0x0000FFF8: {
                 "attributeName": "GeneratedCommandList",
                 "attributeId": 0x0000FFF8,
